@@ -20,7 +20,7 @@ pipeline {
         
         stage('OWASP FS SCAN') {
             steps {
-                dependencyCheck additionalArguments: '--scan ./app/backend --disableYarnAudit --disableNodeAudit', odcInstallation: 'DC'
+                dependencyCheck additionalArguments: '--scan ./app/backend --disableYarnAudit --disableNodeAudit', odcInstallation: 'DCHECK'
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
@@ -34,7 +34,7 @@ pipeline {
         stage('SONARQUBE ANALYSIS') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh " $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Bank -Dsonar.projectKey=Bank "
+                    sh " $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Bank_app -Dsonar.projectKey=Bank_app "
                 }
             }
         }
