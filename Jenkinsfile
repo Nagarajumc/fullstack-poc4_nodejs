@@ -42,14 +42,14 @@ pipeline {
         
          stage('Install Dependencies') {
             steps {
-                sh "npm install"
+                sh "npm ci"
             }
         }
         
         stage('Backend') {
             steps {
                 dir('/root/.jenkins/workspace/Bank/app/backend') {
-                    sh "npm install"
+                    sh "npm ci"
                 }
             }
         }
@@ -57,7 +57,7 @@ pipeline {
         stage('frontend') {
             steps {
                 dir('/root/.jenkins/workspace/Bank/app/frontend') {
-                    sh "npm install"
+                    sh "npm ci"
                 }
             }
         }
