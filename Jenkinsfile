@@ -48,7 +48,7 @@ pipeline {
         
         stage('Backend') {
             steps {
-                dir('/root/.jenkins/CI_CD_Nodejs_app/backend') {
+                dir('/var/lib/jenkins/workspace/CI_CD_Nodejs_app/app/backend') {
                     sh "npm install"
                 }
             }
