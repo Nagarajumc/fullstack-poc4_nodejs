@@ -67,12 +67,5 @@ pipeline {
                 sh "npm run compose:up -d"
             }
         }
-        
-post {
-  always {
-    cleanWs()
-  }
-}
-
     }
 }
